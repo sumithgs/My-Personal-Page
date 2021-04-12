@@ -1,0 +1,32 @@
+{% extends 'mywebapp/base.html' %}
+
+{% block body_block %}
+<section id="welcome-section" class="welcome-section">
+  <h1 style='font-size: 50px;'>Hello I am sumithgs</h1>
+</section>
+<div><h2 class='projects-section-header'>These are My projects</h2></div>
+<div class= 'main-body'>
+
+  <div class="container" id="container">
+    {% for project in projects_list %}
+    <div class='card'>
+      <div class='box'>
+        <div class='content'>
+          <a href="{{ project.image.url }}">
+            <img src="{{ project.image.url }}"
+          alt="project">
+          </a>
+         {% if user.is_authenticated %}
+          <h3 ><a style='color:#ffeb7a;' href="{% url 'projects_detail' pk=project.pk %}">{{project.title}}</a></h3>
+          {% else %}
+          <a href="{{project.github_url}}"><h3>{{project.title}}</h3></a>
+          {% endif %} 
+          <p>{{project.description}}</p>
+          <p style='color:#ffeb7a;'>Published on: {{ project.create_date|date:"D M Y"}}</p>
+        </div>
+      </div>      
+    </div>
+    {% endfor %}
+    </div>
+  </div>
+{% endblock %}

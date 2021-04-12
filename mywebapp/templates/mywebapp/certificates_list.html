@@ -1,0 +1,25 @@
+{% extends 'mywebapp/base.html' %}
+
+{% block body_block %}
+<div class= 'main-body'>
+  <div class="container" id="container">
+    {% for project in certificates_list %}
+    
+    <div class='responsive'>
+      <div class='gallery'>
+        <a href="{{ project.images.url }}">
+          <img src="{{ project.images.url }}" alt="project" width="300" height="300">
+        </a>
+        {% if user.is_authenticated %}
+        <div class='des'> <a href="{% url 'certificates_detail' pk=project.pk %}">{{project.title}}</a></div>
+        {% else %}
+        <div class='des'>{{project.title}}</div>
+        {% endif %}
+      </div>
+    </div>
+    
+    {% endfor %}
+    </div>
+    
+  </div>
+{% endblock %}

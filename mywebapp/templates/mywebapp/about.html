@@ -1,0 +1,91 @@
+{% extends 'mywebapp/base.html' %}
+{% block body_block %}
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .body-about-section{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #232427;
+    color: white;
+  }
+  .about-section{
+    background: url(https://images.pexels.com/photos/3222255/pexels-photo-3222255.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260) no-repeat left;
+    background-size: 55%;
+    background-color: #232427;
+    overflow: hidden;
+    color: #fff;
+    padding: 100px 0;
+  }
+  .inner-container{
+    width: 55%;
+    float: right;
+    background-color: rgb(34,34,34);
+    padding: 150px;
+  }
+  .inner-container h1{
+  margin-bottom: 30px;
+  font-size: 30px;
+  font-weight: 900;
+  }
+  .text{
+    font-size: 18px;
+    color: white;
+    line-height: 30px;
+    text-align: justify;
+    margin-bottom: 40px;
+}
+
+.skills{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 18px;
+}
+  @media screen and (max-width:1200px){
+    .inner-container{
+        padding: 80px;
+    }
+}
+
+@media screen and (max-width:1000px){
+    .about-section{
+        background-size: 100%;
+        padding: 100px 40px;
+    }
+    .inner-container{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:600px){
+    .about-section{
+        padding: 0;
+    }
+    .inner-container{
+        padding: 60px;
+    }
+}
+</style>
+   <div class="body-about-section">
+    <div class="about-section">
+      <div class="inner-container">
+          <h1>About Me</h1>
+          <p class="text">
+            Hi, I'm Sumith, a passionate developer. I can code in a variety of languages such as c, c++, python, and dart. My interests include data science, web development, machine learning, artificial intelligence, and app development.
+          </p>
+          <div class="skills">
+              <span>Web development</span>
+              <span>Data science</span>
+              <span>App development</span>
+              
+          </div>
+      </div>
+  </div>
+</div>
+{% endblock %}

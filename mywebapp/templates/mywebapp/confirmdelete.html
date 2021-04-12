@@ -1,0 +1,27 @@
+{% extends 'mywebapp/base.html' %}
+
+{% block body_block %}
+
+
+<form action="." method="post">
+    <div class="main-body">
+    <div class="form">
+    <h2>Are You sure that you want to delete {{ object }} ?</h2>
+    <div class="input">
+        <div class="inputbox">
+    {% csrf_token %}
+    <input type="submit" value='Delete' style='color:red;'>    
+    <a style="display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #ffad00;color: #ffffff; 
+   border-radius: 15px;margin-top: 10px;
+    font-size: 25px; font-weight: 500;height: 50px;"
+     href="{% url 'projects_list' %}"><p>Cancel</p></a>   
+</div>
+</div>
+</div>
+</div>
+</form>
+
+{% endblock %}

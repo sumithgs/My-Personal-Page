@@ -1,0 +1,30 @@
+{% extends 'mywebapp/base.html' %}
+<title>{% block title %} New project {% endblock %}</title>
+{% block body_block %}
+<style>
+input[type=file]::file-selector-button {
+  border: 2px solid #ffeb7a;
+  border-radius: 15px;
+  padding: .2em .4em;
+  width: 60%;
+	height: 40px;
+  background-color: black;
+  transition: 1s;
+  color: #ffca7a;
+}
+
+</style>
+<center>
+<form  method="post" enctype="multipart/form-data">
+  <div class="form">
+    <h2>New project</h2>
+    <div class="input">
+      <div class="inputbox">
+    {% csrf_token %}
+  {{form.as_p}}
+  <input type="submit" value='Save'>
+</div>
+</div>
+</div>
+</form></center>
+{% endblock %}

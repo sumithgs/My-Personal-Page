@@ -1,0 +1,211 @@
+{% extends 'mywebapp/base.html' %}
+{% block body_block %}
+
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+.contactmsg{
+    position: relative;
+    min-height: 100vh;
+    padding: 50px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: url(https://store-images.s-microsoft.com/image/apps.42623.14030800370618913.6383968f-bfa5-4d04-8f87-c8f0ea8b40f5.4c0cb91e-6821-4c2a-964c-987763cf22ae?mode=scale&q=90&h=1080&w=1920) no-repeat;
+    background-size: cover;
+   
+}
+
+.contactmsg .contentmsg{
+    max-width: 800px;
+    text-align: center;
+    margin-top: 80px;
+    background-color: rgba(255,255,255,0.5)
+}
+.contactmsg .contentmsg h2{
+    font-size: 36px;
+    font-weight: 500;
+    color: #000;
+}
+.contactmsg .contentmsg p{
+    font-weight: 300;
+    color: #000;
+}
+.containermsg{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+.containermsg .contactInfo{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.containermsg .contactInfo .box{
+    position: relative;
+    padding: 20px 0;
+    display: flex;
+}
+.containermsg .contactInfo .box .icon{
+    min-width: 60px;
+    height: 60px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 22px;
+}
+.containermsg .contactInfo .box .text{
+    display: flex;
+    margin-left: 20px;
+    font-size: 16px;
+    color: #fff;
+    flex-direction: column;
+    font-weight: 300;
+}
+.containermsg .contactInfo .box .text h3{
+    font-weight: 500;
+    color:#00bcd4;
+}
+.contactForm{
+    width: 40%;
+    padding: 40px;
+    background: #fff;
+}
+.contactForm h2{
+    font-size: 30px;
+    color: #333;
+    font-weight: 500;
+}
+.contactForm .inputbox{
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+}
+.contactForm .inputbox input,
+.contactForm .inputbox textarea{
+    width: 100%;
+    padding: 5px 0;
+    font-size: 16px;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 2px solid #333;
+    outline: none;
+    resize: none;
+}
+.contactForm .inputbox span{
+    position: absolute;
+    left: 0;
+    padding: 5px 0;
+    font-size: 16px;
+    margin: 10px 0;
+    pointer-events: none;
+    transition: 0.5s;
+    color: #666;
+}
+.contactForm .inputbox input:focus ~ span,
+.contactForm .inputbox input:valid ~ span,
+.contactForm .inputbox textarea:focus ~ span,
+.contactForm .inputbox textarea:valid ~ span
+{
+    color: #e91e63;
+    font-size: 12px;
+    transform: translateY(-20px);
+}
+.contactForm .inputbox input[type='submit']{
+    width: 100px;
+    background: #1f2029;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 18px;
+}
+@media (max-width:991px){
+    .contactmsg{
+        padding: 50px;
+    }
+    .containermsg{
+        flex-direction: column;
+    }
+    .containermsg .contactInfo{
+        margin-bottom: 40px;
+    }
+    .containermsg .contactInfo,.contactForm{
+        width: 100%;
+    }
+}
+</style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<section class='contactmsg'>
+    <div class="contentmsg">
+        <h2>Contact Me</h2>
+        <p>If you like my work, you can send a message or contact me by mail or message me by what's app.</p>
+        {% if msg %}
+        <h2>Thank you for visiting my website {{msg}}</h2>
+        {% else %}
+        <p>Please provide your valuable feedback.</p>
+        {% endif %}
+    </div>
+    <div class="containermsg">
+        <div class="contactInfo">
+            <div class="box">
+                <div class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i>
+                </div>
+                <div class="text">
+                    <h3>Address</h3>
+                    <p>11, 12th E Main Road,<br>Muthyalanagar,Bangalore <br>560054</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="icon"><i class="fa fa-phone" aria-hidden="true"></i>
+                </div>
+                <div class="text">
+                    <h3>Phone</h3>
+                    <p>+919739196550</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="icon"><i class="fa fa-envelope-o" aria-hidden="true"></i>
+                </div>
+                <div class="text">
+                    <h3>Email</h3>
+                    <p>sumithgs2000@gmail.com</p>
+                </div>
+            </div>
+            </div>
+            <div class="contactForm">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <h2>Send Message</h2>
+                    <div class="inputbox">
+                    <input type="text" required=required name="full-name">
+                    <span>Full name</span>
+                </div>
+                <div class="inputbox">
+                    <input type="text" required=required name='email'>
+                    <span>Email</span>
+                </div>
+                <div class="inputbox">
+                    <textarea type="text" required=required name='user-message'></textarea>
+                    <span>Type Your Message here...</span>
+                </div>
+                <div class="inputbox">
+                    <input type="submit" value="Send">
+                
+                </div>
+                </form>
+            </div>
+        
+    </div>
+</section>
+
+{% endblock %}
