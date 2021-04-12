@@ -7,8 +7,8 @@
     
     <div class='responsive'>
       <div class='gallery'>
-        <a href="{{ project.images.url }}">
-          <img src="{{ project.images.url }}" alt="project" width="300" height="300">
+        <a href="{{ project.images }}">
+          <img src="{{ project.images }}" alt="project" width="300" height="300">
         </a>
         {% if user.is_authenticated %}
         <div class='des'> <a href="{% url 'certificates_detail' pk=project.pk %}">{{project.title}}</a></div>

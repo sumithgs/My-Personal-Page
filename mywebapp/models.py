@@ -7,7 +7,8 @@ from django.urls import reverse
 class Projects(models.Model):
     title = models.CharField(max_length=200, default='Title here')
     description = models.TextField(default='Description here')
-    image = models.ImageField(upload_to='project_pic/')
+    #image = models.ImageField(upload_to='project_pic/')
+    image = models.URLField(blank=True, default='https://www.ImageLink.com')
     create_date = models.DateTimeField(
         blank=True, null=True, default=timezone.now)
     github_url = models.URLField(
@@ -21,7 +22,8 @@ class Projects(models.Model):
 
 
 class Certificates(models.Model):
-    images = models.ImageField(upload_to='certificates_images/')
+    #images = models.ImageField(upload_to='certificates_images/')
+    images = models.URLField(blank=True, default='https://www.ImageLink.com')
     title = models.CharField(max_length=200, default='Title here')
 
     def get_absolute_url(self):

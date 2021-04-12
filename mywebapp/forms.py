@@ -3,7 +3,7 @@ from .models import Certificates, Projects
 
 
 class ProjectForm(forms.ModelForm):
-    image = forms.FileField(required=False)
+    #image = forms.FileField(required=False)
 
     class Meta():
         model = Projects
@@ -18,7 +18,7 @@ class ProjectForm(forms.ModelForm):
 
 
 class CertificatesForm(forms.ModelForm):
-    images = forms.FileField(required=False)
+   # images = forms.FileField(required=False)
 
     class Meta():
         model = Certificates
