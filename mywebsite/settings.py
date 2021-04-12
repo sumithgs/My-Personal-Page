@@ -56,7 +56,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'mywebsite.urls'
-
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
