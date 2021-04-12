@@ -154,7 +154,7 @@ STATICFILES_DIRS = [
     BASE_DIR / 'mywebapp/static'
 ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
+MEDIAFILES_STORAGE = ''
 # Email settings
 EMAIL_HOST = config('EMAIL_HOST')
 EMAIL_PORT = config('EMAIL_PORT')
