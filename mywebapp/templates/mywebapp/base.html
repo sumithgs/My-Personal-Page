@@ -1,109 +1,128 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/mainstyle.css' %}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/mainstyle.css' %}" />
     <link
-  rel="stylesheet"
-  href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-  integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
-  crossorigin="anonymous"
-/>
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+      crossorigin="anonymous"
+    />
     <title>My Portfolio</title>
-    <link rel = "icon" href = 
-"{% static 'logos/logo1.svg' %}" 
-        type = "image/x-icon">
-</head>
-<body>
-    
+    <link
+      rel="icon"
+      href="{% static 'logos/logo1.svg' %}"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
     <nav>
-        <input id="nav-toggle" type="checkbox">
-        <label class="logo"><i class="fab fa-stripe-s"></i></label>
-        <ul class="links">
-          <li><a class="active" href="/">Home</a></li>
-          <li><a class="active" href="{% url 'about' %}">About Me</a></li>
-          <!--<li><a class="active" href="{% url 'contactp' %}">Contact Me</a></li>-->
-          <li><a class="active" href="#contact">Contact Me</a></li>
-          <li><a href="{% url 'certificates_list' %}">Certificates</a></li>
-          {% if user.is_authenticated %}
-          <li>
-            <a href="{% url 'projects_new' %}">Add project</a>
-          </li>
-          <li>
-            <a href="{% url 'certificates_new' %}">Add certificate</a>
-          </li>
-          <li>
-            <a href="{% url 'logout' %}">Logout</a>
-          </li>
-          {% else %}
-          <li><a href="https://drive.google.com/file/d/1N0VOW4o3KPDZl1-VX_lTS7zaH5Qd2iF-/view?usp=sharing">Resume</a></li>
-          
-          <li>
-              <a href="{% url 'user_login' %}">Login</a>
-            </li>
-            {% endif %}
-        </ul>
-        <label for="nav-toggle" class="icon-burger">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-        </label>
+      <input id="nav-toggle" type="checkbox" />
+      <label class="logo"><i class="fab fa-stripe-s"></i></label>
+      <ul class="links">
+        <li><a class="active" href="/">Home</a></li>
+        <li><a class="active" href="{% url 'about' %}">About Me</a></li>
+        <!--<li><a class="active" href="{% url 'contactp' %}">Contact Me</a></li>-->
+        <li><a class="active" href="#contact">Contact Me</a></li>
+        <li>
+          <a href="{% url 'certificates_list' %}">Awards & Certificates</a>
+        </li>
+        {% if user.is_authenticated %}
+        <li>
+          <a href="{% url 'projects_new' %}">Add project</a>
+        </li>
+        <li>
+          <a href="{% url 'certificates_new' %}">Add certificate</a>
+        </li>
+        <li>
+          <a href="{% url 'logout' %}">Logout</a>
+        </li>
+        {% else %}
+        <li>
+          <a
+            href="https://drive.google.com/file/d/1N0VOW4o3KPDZl1-VX_lTS7zaH5Qd2iF-/view?usp=sharing"
+            >Resume</a
+          >
+        </li>
+
+        <li>
+          <a href="{% url 'user_login' %}">Login</a>
+        </li>
+        {% endif %}
+      </ul>
+      <label for="nav-toggle" class="icon-burger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </label>
     </nav>
-    {% block body_block %}
-    
-        {% endblock %}
-<footer id='contact'>
-    <div class='footer_info' id='footer_info'>
-    <div class='footer_width about'>
-        <h2>About</h2>
-        <p>Hi, I'm Sumith, a passionate software developer.</p>
-    
-    
-        <div class="social-media">
+    {% block body_block %} {% endblock %}
+    <footer id="contact">
+      <div class="footer_info" id="footer_info">
+        <div class="footer_width about">
+          <h2>About</h2>
+          <p>Hi, I'm Sumith, a passionate software developer.</p>
+
+          <div class="social-media">
             <ul>
-                <li><a href=""><i class="fab fa-whatsapp"></i></a></li>
-                <li><a href="https://github.com/sumithgs"><i class="fab fa-github"></i></a></li>
-                <li><a href="https://www.linkedin.com/in/sumith-g-s-4808a11a3/"><i class="fab fa-linkedin-in"></i></a></li>
+              <li>
+                <a href=""><i class="fab fa-whatsapp"></i></a>
+              </li>
+              <li>
+                <a href="https://github.com/sumithgs"
+                  ><i class="fab fa-github"></i
+                ></a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/sumith-g-s-4808a11a3/"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+              </li>
             </ul>
+          </div>
         </div>
-    </div>
-    <div class='footer_width link'>
-        <h2>Quick link</h2>
-        <ul>
+        <div class="footer_width link">
+          <h2>Quick link</h2>
+          <ul>
             <li><a href="/">Home</a></li>
             <li><a href="{% url 'certificates_list' %}">Certificates</a></li>
-            <li><a href="https://drive.google.com/file/d/1N0VOW4o3KPDZl1-VX_lTS7zaH5Qd2iF-/view?usp=sharing">Resume</a></li>
+            <li>
+              <a
+                href="https://drive.google.com/file/d/1N0VOW4o3KPDZl1-VX_lTS7zaH5Qd2iF-/view?usp=sharing"
+                >Resume</a
+              >
+            </li>
             <li><a href="{% url 'projects_list' %}">Projects</a></li>
-        </ul>
-    </div>
-    <div class='footer_width contact' >
-        <h2>Contact</h2>
-        <ul>
+          </ul>
+        </div>
+        <div class="footer_width contact">
+          <h2>Contact</h2>
+          <ul>
             <li>
-                <span><i class='fas fa-map-marker-alt'></i></span>
-                <p>
-                    #11,12th E main Road, Muthyalanagar, Bangalore, Karnataka, India-560054
-                </p>
+              <span><i class="fas fa-map-marker-alt"></i></span>
+              <p>
+                #11,12th E main Road, Muthyalanagar, Bangalore, Karnataka,
+                India-560054
+              </p>
             </li>
             <li>
-                <span><i class='far fa-envelope'></i></span>
-                <a href="">sumithgs2000@gmail.com</a>
+              <span><i class="far fa-envelope"></i></span>
+              <a href="">sumithgs2000@gmail.com</a>
             </li>
             <li>
-                <span><i class="fab fa-whatsapp"></i></span>
-                <a href="">+91 8197316602</a>
+              <span><i class="fab fa-whatsapp"></i></span>
+              <a href="">+91 9739196550</a>
             </li>
-        </ul>
-    </div>
-</div>
-<div class="copy-right">
-    <p>
-        &copy; Created by Sumith G S
-    </p>
-</div>
-</footer>     
-</body>
+          </ul>
+        </div>
+      </div>
+      <div class="copy-right">
+        <p>&copy; Created by Sumith G S</p>
+      </div>
+    </footer>
+  </body>
 </html>
